@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import reducers from './reducers/raw';
 import * as actionCreators from './actions/raw';
-import Increment from './components/Increment.jsx';
-import TextForm from './components/TextForm.jsx';
+import Increment from './components/raw/Increment.jsx';
+import TextForm from './components/raw/TextForm.jsx';
 
 export default () => {
-  /* eslint-disable no-underscore-dangle */
-  const reduxDevtools = window.__REDUX_DEVTOOLS_EXTENSION__
-    && window.__REDUX_DEVTOOLS_EXTENSION__();
-  /* eslint-enable */
-
-  const store = createStore(reducers, reduxDevtools);
+  const store = configureStore({
+    reducer: reducers,
+  });
 
   const render = (state = {}) => {
     const { increment, text } = state;
