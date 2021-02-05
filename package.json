@@ -1,0 +1,81 @@
+{
+  "name": "react-dev",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "test": "jest",
+    "lint": "eslint src/**/*.js[x]"
+  },
+  "dependencies": {
+    "@babel/runtime": "*",
+    "@popperjs/core": "^2.6.0",
+    "@reduxjs/toolkit": "^1.5.0",
+    "bootstrap": "^5.0.0-beta1",
+    "classnames": "*",
+    "cn": "^0.1.1",
+    "immutability-helper": "^3.1.1",
+    "lodash": "^4.17.20",
+    "prop-types": "^15.7.2",
+    "react": "^17.0",
+    "react-dom": "*",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/plugin-transform-runtime": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "babel-eslint": "*",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "*",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "*",
+    "css-loader": "*",
+    "css-minimizer-webpack-plugin": "*",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.1",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-plugin-babel": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-react": "*",
+    "eslint-plugin-react-hooks": "*",
+    "html-webpack-plugin": "*",
+    "jest": "^26.6.3",
+    "mini-css-extract-plugin": "*",
+    "node-sass": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "timeout-then": "^2.0.0",
+    "webpack": "^5",
+    "webpack-cli": "^4",
+    "webpack-dev-server": "^3",
+    "webpack-merge": "^5"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/test"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "verbose": true,
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  }
+}
