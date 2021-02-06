@@ -1,46 +1,74 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import cn from 'classnames';
 import * as actionCreators from '../actions';
 
 const mapStateToProps = (state) => {
-  const { tasks: { byId, allIds } } = state;
+  const { tasks: { byId, allIds }, tasksUIState } = state;
   const tasks = allIds.map((id) => byId[id]);
-  return { tasks };
+  return { tasks, tasksUIState };
 };
 
-const Tasks = (props) => {
+const Tasks = ({
+  tasks,
+  tasksUIState,
+  removeTask,
+  toggleTaskState,
+  inverseTaskTheme,
+}) => {
   const handleRemoveTask = (id) => () => {
-    const { removeTask } = props;
     removeTask(id);
   };
 
-  const handleToggleTaskState = (id) => (e) => {
-    e.preventDefault();
-    const { toggleTaskState } = props;
+  const handleToggleTaskState = (id) => () => {
     toggleTaskState(id);
   };
 
-  const renderTasks = (tasks) => (
+  const handleInverseTaskTheme = (task) => () => {
+    inverseTaskTheme(task);
+  };
+
+  const renderTask = (task) => {
+    const themeToClasses = {
+      white: 'bg-white',
+      light: 'bg-light',
+    };
+
+    const currentThemeClass = themeToClasses[tasksUIState[task.id].theme];
+
+    const classes = cn({
+      'list-group-item d-flex': true,
+      [currentThemeClass]: true,
+    });
+
+    return (
+      <li key={task.id} className={classes}>
+        <button data-test="task-change-theme" onClick={handleInverseTaskTheme(task)} className="btn btn-secondary btn-sm me-3" type="button">
+          <span>Theme</span>
+        </button>
+        <span className="me-auto d-flex align-items-center">
+          <a href="#" data-test="task-toggle-state" onClick={handleToggleTaskState(task.id)}>
+            {task.state === 'active' ? task.text : <s>{task.text}</s>}
+          </a>
+        </span>
+        <button type="button" className="close btn" onClick={handleRemoveTask(task.id)}>
+          <span>&times;</span>
+        </button>
+      </li>
+    );
+  };
+
+  if (tasks.length === 0) {
+    return null;
+  }
+
+  return (
     <div className="mt-3">
       <ul className="list-group">
-        {tasks.map(({ id, text, state }) => (
-          <li key={id} className="list-group-item d-flex">
-            <span className="me-auto">
-              <a href="#" data-test="task-toggle-state" onClick={handleToggleTaskState(id)}>
-                {state === 'active' ? text : <s>{text}</s>}
-              </a>
-            </span>
-            <button type="button" className="close" onClick={handleRemoveTask(id)}>
-              <span>&times;</span>
-            </button>
-          </li>
-        ))}
+        {tasks.map(renderTask)}
       </ul>
     </div>
   );
-
-  const { tasks } = props;
-  return (tasks.length > 0) && renderTasks(tasks);
 };
 
 export default connect(mapStateToProps, actionCreators)(Tasks);

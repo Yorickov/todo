@@ -5,20 +5,20 @@ import * as actionCreators from '../actions';
 
 const mapStateToProps = ({ text }) => ({ text });
 
-const NewTaskForm = (props) => {
+const NewTaskForm = ({
+  text,
+  updateNewTaskText,
+  addTask,
+}) => {
   const handleUpdateNewTaskText = (e) => {
-    const { updateNewTaskText } = props;
     updateNewTaskText(e.target.value);
   };
 
   const handleAddTask = (e) => {
     e.preventDefault();
-    const { addTask, text } = props;
     const task = { text, id: nanoid(), state: 'active' };
     addTask(task);
   };
-
-  const { text } = props;
 
   return (
     <form action="" onSubmit={handleAddTask} className="row">

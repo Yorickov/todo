@@ -19,3 +19,8 @@ export const toggleTaskState = createAction(
   'TASK_STATE_TOGGLE',
   (id) => ({ payload: { id } }),
 );
+
+export const inverseTaskTheme = createAction(
+  'TASK_CHANGE_THEME',
+  (task) => ({ payload: { task } }),
+);

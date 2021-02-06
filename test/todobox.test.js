@@ -44,8 +44,18 @@ it('Store', () => {
     .simulate('click');
   expect(wrapper.render()).toMatchSnapshot();
 
-  const links = wrapper.find('.close');
-  links.last().simulate('click');
+  wrapper
+    .find('[data-test="task-change-theme"]').first()
+    .simulate('click');
+  expect(wrapper.find('.list-group-item').first().hasClass('bg-white')).toBeTruthy();
+
+  wrapper
+    .find('[data-test="task-change-theme"]').first()
+    .simulate('click');
+  expect(wrapper.find('.list-group-item').first().hasClass('bg-light')).toBeTruthy();
+
+  wrapper.find('.close').last()
+    .simulate('click');
   expect(wrapper.render()).toMatchSnapshot();
   expect(wrapper.find('.list-group-item')).toHaveLength(1);
 });

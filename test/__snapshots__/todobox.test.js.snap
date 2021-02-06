@@ -102,10 +102,19 @@ exports[`Store 3`] = `
         class="list-group"
       >
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -115,7 +124,7 @@ exports[`Store 3`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -165,10 +174,19 @@ exports[`Store 4`] = `
         class="list-group"
       >
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -178,7 +196,7 @@ exports[`Store 4`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -228,10 +246,19 @@ exports[`Store 5`] = `
         class="list-group"
       >
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -241,7 +268,7 @@ exports[`Store 5`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -250,10 +277,19 @@ exports[`Store 5`] = `
           </button>
         </li>
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -263,7 +299,7 @@ exports[`Store 5`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -313,10 +349,19 @@ exports[`Store 6`] = `
         class="list-group"
       >
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -328,7 +373,7 @@ exports[`Store 6`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -337,10 +382,19 @@ exports[`Store 6`] = `
           </button>
         </li>
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -350,7 +404,7 @@ exports[`Store 6`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -400,10 +454,19 @@ exports[`Store 7`] = `
         class="list-group"
       >
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -413,7 +476,7 @@ exports[`Store 7`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -422,10 +485,19 @@ exports[`Store 7`] = `
           </button>
         </li>
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -435,7 +507,7 @@ exports[`Store 7`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
@@ -485,10 +557,19 @@ exports[`Store 8`] = `
         class="list-group"
       >
         <li
-          class="list-group-item d-flex"
+          class="list-group-item d-flex bg-light"
         >
+          <button
+            class="btn btn-secondary btn-sm me-3"
+            data-test="task-change-theme"
+            type="button"
+          >
+            <span>
+              Theme
+            </span>
+          </button>
           <span
-            class="me-auto"
+            class="me-auto d-flex align-items-center"
           >
             <a
               data-test="task-toggle-state"
@@ -498,7 +579,7 @@ exports[`Store 8`] = `
             </a>
           </span>
           <button
-            class="close"
+            class="close btn"
             type="button"
           >
             <span>
