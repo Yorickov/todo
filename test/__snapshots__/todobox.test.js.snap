@@ -107,7 +107,12 @@ exports[`Store 3`] = `
           <span
             class="me-auto"
           >
-            first task
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              first task
+            </a>
           </span>
           <button
             class="close"
@@ -165,7 +170,12 @@ exports[`Store 4`] = `
           <span
             class="me-auto"
           >
-            first task
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              first task
+            </a>
           </span>
           <button
             class="close"
@@ -223,7 +233,12 @@ exports[`Store 5`] = `
           <span
             class="me-auto"
           >
-            another task
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              first task
+            </a>
           </span>
           <button
             class="close"
@@ -240,7 +255,12 @@ exports[`Store 5`] = `
           <span
             class="me-auto"
           >
-            first task
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              another task
+            </a>
           </span>
           <button
             class="close"
@@ -298,7 +318,184 @@ exports[`Store 6`] = `
           <span
             class="me-auto"
           >
-            another task
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              <s>
+                first task
+              </s>
+            </a>
+          </span>
+          <button
+            class="close"
+            type="button"
+          >
+            <span>
+              ×
+            </span>
+          </button>
+        </li>
+        <li
+          class="list-group-item d-flex"
+        >
+          <span
+            class="me-auto"
+          >
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              another task
+            </a>
+          </span>
+          <button
+            class="close"
+            type="button"
+          >
+            <span>
+              ×
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Store 7`] = `
+<div
+  class="row"
+>
+  <div
+    class="col-6"
+  >
+    <form
+      action=""
+      class="row"
+    >
+      <div
+        class="col-10"
+      >
+        <input
+          class="form-control mr-3"
+          placeholder="I am going..."
+          required=""
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        class="btn btn-primary col-2"
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
+    <div
+      class="mt-3"
+    >
+      <ul
+        class="list-group"
+      >
+        <li
+          class="list-group-item d-flex"
+        >
+          <span
+            class="me-auto"
+          >
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              first task
+            </a>
+          </span>
+          <button
+            class="close"
+            type="button"
+          >
+            <span>
+              ×
+            </span>
+          </button>
+        </li>
+        <li
+          class="list-group-item d-flex"
+        >
+          <span
+            class="me-auto"
+          >
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              another task
+            </a>
+          </span>
+          <button
+            class="close"
+            type="button"
+          >
+            <span>
+              ×
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Store 8`] = `
+<div
+  class="row"
+>
+  <div
+    class="col-6"
+  >
+    <form
+      action=""
+      class="row"
+    >
+      <div
+        class="col-10"
+      >
+        <input
+          class="form-control mr-3"
+          placeholder="I am going..."
+          required=""
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        class="btn btn-primary col-2"
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
+    <div
+      class="mt-3"
+    >
+      <ul
+        class="list-group"
+      >
+        <li
+          class="list-group-item d-flex"
+        >
+          <span
+            class="me-auto"
+          >
+            <a
+              data-test="task-toggle-state"
+              href="#"
+            >
+              first task
+            </a>
           </span>
           <button
             class="close"

@@ -14,7 +14,7 @@ const NewTaskForm = (props) => {
   const handleAddTask = (e) => {
     e.preventDefault();
     const { addTask, text } = props;
-    const task = { text, id: nanoid() };
+    const task = { text, id: nanoid(), state: 'active' };
     addTask(task);
   };
 

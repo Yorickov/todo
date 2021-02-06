@@ -32,8 +32,20 @@ it('Store', () => {
 
   newTaskSubmit.simulate('submit');
   expect(wrapper.render()).toMatchSnapshot();
+  expect(wrapper.find('.list-group-item')).toHaveLength(2);
+
+  wrapper
+    .find('[data-test="task-toggle-state"]').first()
+    .simulate('click');
+  expect(wrapper.render()).toMatchSnapshot();
+
+  wrapper
+    .find('[data-test="task-toggle-state"]').first()
+    .simulate('click');
+  expect(wrapper.render()).toMatchSnapshot();
 
   const links = wrapper.find('.close');
   links.last().simulate('click');
   expect(wrapper.render()).toMatchSnapshot();
+  expect(wrapper.find('.list-group-item')).toHaveLength(1);
 });
