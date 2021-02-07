@@ -1,18 +1,13 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import _ from 'lodash';
+import { reducer as formReducer } from 'redux-form';
 import {
-  updateNewTaskText,
   addTask,
   removeTask,
   toggleTaskState,
   inverseTaskTheme,
   setTasksFilter,
 } from '../actions';
-
-const text = createReducer('', {
-  [updateNewTaskText]: (_state, { payload: { text } }) => text,
-  [addTask]: () => '',
-});
 
 const tasks = createReducer({ byId: {}, allIds: [], currentFilterName: 'all' }, {
   [addTask]: (state, { payload: { task } }) => {
@@ -58,7 +53,7 @@ const tasksUIState = createReducer({}, {
 });
 
 export default combineReducers({
-  text,
+  form: formReducer,
   tasks,
   tasksUIState,
 });
