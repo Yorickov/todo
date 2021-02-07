@@ -24,3 +24,8 @@ export const inverseTaskTheme = createAction(
   'TASK_CHANGE_THEME',
   (task) => ({ payload: { task } }),
 );
+
+export const setTasksFilter = createAction(
+  'TASK_FILTER_SET',
+  (filterName) => ({ payload: { filterName } }),
+);

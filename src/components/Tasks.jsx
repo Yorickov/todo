@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cn from 'classnames';
 import * as actionCreators from '../actions';
+import { filteredTasksSelector } from '../selectors';
 
 const mapStateToProps = (state) => {
-  const { tasks: { byId, allIds }, tasksUIState } = state;
-  const tasks = allIds.map((id) => byId[id]);
+  const tasks = filteredTasksSelector(state);
+  const { tasksUIState } = state;
   return { tasks, tasksUIState };
 };
 

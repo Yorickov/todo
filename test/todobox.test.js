@@ -35,16 +35,6 @@ it('Store', () => {
   expect(wrapper.find('.list-group-item')).toHaveLength(2);
 
   wrapper
-    .find('[data-test="task-toggle-state"]').first()
-    .simulate('click');
-  expect(wrapper.render()).toMatchSnapshot();
-
-  wrapper
-    .find('[data-test="task-toggle-state"]').first()
-    .simulate('click');
-  expect(wrapper.render()).toMatchSnapshot();
-
-  wrapper
     .find('[data-test="task-change-theme"]').first()
     .simulate('click');
   expect(wrapper.find('.list-group-item').first().hasClass('bg-white')).toBeTruthy();
@@ -53,6 +43,27 @@ it('Store', () => {
     .find('[data-test="task-change-theme"]').first()
     .simulate('click');
   expect(wrapper.find('.list-group-item').first().hasClass('bg-light')).toBeTruthy();
+
+  wrapper
+    .find('[data-test="task-toggle-state"]').first()
+    .simulate('click');
+  expect(wrapper.render()).toMatchSnapshot();
+
+  const activeFilterButton = wrapper.find('[data-test="task-filter-active"]');
+  const finishedFilterButton = wrapper.find('[data-test="task-filter-finished"]');
+
+  activeFilterButton.simulate('click');
+  expect(wrapper.render()).toMatchSnapshot();
+  expect(wrapper.find('.list-group-item')).toHaveLength(1);
+
+  finishedFilterButton.simulate('click');
+  expect(wrapper.render()).toMatchSnapshot();
+  expect(wrapper.find('.list-group-item')).toHaveLength(1);
+
+  const allFilterButton = wrapper.find('[data-test="task-filter-all"]');
+  allFilterButton.simulate('click');
+  expect(wrapper.render()).toMatchSnapshot();
+  expect(wrapper.find('.list-group-item')).toHaveLength(2);
 
   wrapper.find('.close').last()
     .simulate('click');

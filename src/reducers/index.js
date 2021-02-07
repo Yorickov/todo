@@ -6,6 +6,7 @@ import {
   removeTask,
   toggleTaskState,
   inverseTaskTheme,
+  setTasksFilter,
 } from '../actions';
 
 const text = createReducer('', {
@@ -13,10 +14,11 @@ const text = createReducer('', {
   [addTask]: () => '',
 });
 
-const tasks = createReducer({ byId: {}, allIds: [] }, {
+const tasks = createReducer({ byId: {}, allIds: [], currentFilterName: 'all' }, {
   [addTask]: (state, { payload: { task } }) => {
     const { byId, allIds } = state;
     return {
+      ...state,
       byId: { ...byId, [task.id]: task },
       allIds: [...allIds, task.id],
     };
@@ -24,6 +26,7 @@ const tasks = createReducer({ byId: {}, allIds: [] }, {
   [removeTask]: (state, { payload: { id } }) => {
     const { byId, allIds } = state;
     return {
+      ...state,
       byId: _.omit(byId, id),
       allIds: _.without(allIds, id),
     };
@@ -38,6 +41,8 @@ const tasks = createReducer({ byId: {}, allIds: [] }, {
       byId: { ...byId, [task.id]: updatedTask },
     };
   },
+  [setTasksFilter]: (state, { payload: { filterName } }) => (
+    { ...state, currentFilterName: filterName }),
 });
 
 const tasksUIState = createReducer({}, {
