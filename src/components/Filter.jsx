@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions';
+import * as actions from '../actions';
 
 const filters = [['all', 'All Tasks'], ['active', 'Active Tasks'], ['finished', 'Finished Tasks']];
 
 const mapStateToProps = (state) => {
   const { tasks: { currentFilterName } } = state;
   return { currentFilterName };
+};
+
+const actionCreators = {
+  setTasksFilter: actions.setTasksFilter,
 };
 
 const Filter = ({

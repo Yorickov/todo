@@ -1,20 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import cn from 'classnames';
-import * as actionCreators from '../actions';
+import * as actions from '../actions';
 import { filteredTasksSelector } from '../selectors';
 
 const mapStateToProps = (state) => {
+  const { tasksUIState, tasksFetchingState } = state;
   const tasks = filteredTasksSelector(state);
-  const { tasksUIState } = state;
-  return { tasks, tasksUIState };
+  return { tasks, tasksUIState, tasksFetchingState };
+};
+
+const actionCreators = {
+  removeTask: actions.removeTask,
+  toggleTask: actions.toggleTask,
+  inverseTaskTheme: actions.inverseTaskTheme,
 };
 
 const Tasks = ({
   tasks,
   tasksUIState,
+  tasksFetchingState,
   removeTask,
-  toggleTaskState,
+  toggleTask,
   inverseTaskTheme,
 }) => {
   const handleRemoveTask = (id) => () => {
@@ -22,7 +29,7 @@ const Tasks = ({
   };
 
   const handleToggleTaskState = (id) => () => {
-    toggleTaskState(id);
+    toggleTask(id);
   };
 
   const handleInverseTaskTheme = (task) => () => {
@@ -58,6 +65,20 @@ const Tasks = ({
       </li>
     );
   };
+
+  if (tasksFetchingState === 'requested') {
+    return (
+      <div className="spinner-border m-3" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
+  }
+
+  if (tasksFetchingState === 'failed') {
+    return (
+      <span>Please, reload page!</span>
+    );
+  }
 
   if (tasks.length === 0) {
     return null;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import timeout from 'timeout-then';
 import reducers from '../src/reducers';
 import TodoBox from '../src/components/TodoBox.jsx';
 
-it('Store', () => {
+it('TodoBox', async () => {
   const store = configureStore({
     reducer: reducers,
   });
@@ -25,12 +26,16 @@ it('Store', () => {
   expect(wrapper.render()).toMatchSnapshot();
 
   newTaskSubmit.simulate('submit');
+  await timeout(400);
+  wrapper.update();
   expect(wrapper.render()).toMatchSnapshot();
 
   newTaskInput.simulate('change', { target: { value: 'another task' } });
   expect(wrapper.render()).toMatchSnapshot();
 
   newTaskSubmit.simulate('submit');
+  await timeout(400);
+  wrapper.update();
   expect(wrapper.render()).toMatchSnapshot();
   expect(wrapper.find('.list-group-item')).toHaveLength(2);
 
@@ -47,6 +52,8 @@ it('Store', () => {
   wrapper
     .find('[data-test="task-toggle-state"]').first()
     .simulate('click');
+  await timeout(400);
+  wrapper.update();
   expect(wrapper.render()).toMatchSnapshot();
 
   const activeFilterButton = wrapper.find('[data-test="task-filter-active"]');
@@ -65,8 +72,9 @@ it('Store', () => {
   expect(wrapper.render()).toMatchSnapshot();
   expect(wrapper.find('.list-group-item')).toHaveLength(2);
 
-  wrapper.find('.close').last()
-    .simulate('click');
+  wrapper.find('.close').last().simulate('click');
+  await timeout(400);
+  wrapper.update();
   expect(wrapper.render()).toMatchSnapshot();
   expect(wrapper.find('.list-group-item')).toHaveLength(1);
 });

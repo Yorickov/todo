@@ -1,19 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { Field, reduxForm } from 'redux-form';
-import * as actionCreators from '../actions';
+import { Field, reduxForm, SubmissionError } from 'redux-form';
+import * as actions from '../actions';
 
 const mapStateToProps = () => ({});
+
+const actionCreators = {
+  addTask: actions.addTask,
+};
 
 const NewTaskForm = ({
   handleSubmit,
   reset,
+  submitting,
+  pristine,
+  error,
   addTask,
 }) => {
-  const handleAddTask = (values) => { // ({ text })
-    const task = { ...values, id: nanoid(), state: 'active' }; // { text, id:... }
-    addTask(task);
+  const handleAddTask = async (values) => {
+    const task = { ...values, id: nanoid(), state: 'active' };
+    try {
+      await addTask(task);
+    } catch (e) {
+      throw new SubmissionError({ _error: e.message });
+    }
     reset();
   };
 
@@ -29,7 +40,8 @@ const NewTaskForm = ({
           placeholder="I am going..."
         />
       </div>
-      <button type="submit" className="btn btn-primary col-2">Add</button>
+      <button type="submit" disabled={pristine || submitting} className="btn btn-primary col-2">Add</button>
+      {error && <div className="ml-3">{error}</div>}
     </form>
   );
 };
